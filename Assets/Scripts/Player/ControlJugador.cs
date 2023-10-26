@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ControlJugador : MonoBehaviour
 {
+    public Camera camaraPrimeraPersona;
+
+    public GameObject proyectil;
+
     public float rapidezDesplazamiento = 10.0f;
     public float fuerzaSalto = 5f;
     private bool isGrounded;
@@ -34,9 +38,25 @@ public class ControlJugador : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None; //Aparece el cursor
         }
+
         if (Input.GetKeyDown("e"))
         {
             Cursor.lockState = CursorLockMode.Locked; //desaparece el cursor
+        }
+
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = camaraPrimeraPersona.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+            GameObject pro;
+            pro = Instantiate(proyectil, ray.origin, transform.rotation);
+
+            Rigidbody rb = pro.GetComponent<Rigidbody>();
+            rb.AddForce(camaraPrimeraPersona.transform.forward * 50, ForceMode.Impulse);
+
+            Destroy(pro, 10);
         }
     }
 }

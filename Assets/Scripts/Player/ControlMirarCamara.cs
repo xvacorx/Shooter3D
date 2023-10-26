@@ -7,7 +7,7 @@ public class ControlMirarCamara : MonoBehaviour
     Vector2 mouseMirar; //Ángulo al que mira la cámara para los ejes X e Y
     Vector2 suavidadV; //Suaviza el movimiento
 
-    public float sensibilidad = 5.0f; //Sensibilidad
+    public float sensibilidad = 3.0f; //Sensibilidad
     public float suavizado = 2.0f; //Coeficiente de suavizado para la interpolación lineal
 
     GameObject jugador;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cactus
   - Enemy
+  - Bala
   layers:
   - Default
   - TransparentFX
