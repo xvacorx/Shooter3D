@@ -23,37 +23,43 @@ public class ControlBot : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(jugador.transform);
-        transform.Translate(rapidez * Vector3.forward * Time.deltaTime);
-
-        if (transform.position.y <= 0.25f)
         {
-            rb.AddForce(Vector3.up * 1f, ForceMode.Impulse);
-        }
+            transform.LookAt(jugador.transform);
+            transform.Translate(rapidez * Vector3.forward * Time.deltaTime);
+
+            if (transform.position.y <= 0.25f)
+            {
+                rb.AddForce(Vector3.up * 1f, ForceMode.Impulse);
+            }
+        } //Seguimiento de jugador y salto
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bala"))
         {
-            recibirDaño();
+            recibirDaño(25);
         }
-    }
+        if (collision.gameObject.CompareTag("Cactus"))
+        {
+            recibirDaño(10);
+        }
+    } //Daños
 
-    public void recibirDaño()
+    public void recibirDaño(int daño)
     {
-        hp = hp - 25;
+        hp = hp - daño;
 
         if (hp <= 0)
         {
             this.desaparecer();
         }
-    }
+    } //Daño recibido
     private void desaparecer()
     {
         GameObject par;
         par = Instantiate(particle, Enemy.transform.position, transform.rotation);
         Destroy(gameObject);
         Destroy(par,2.5f);
-    }
+    } //Muerte del enemigo
 }
