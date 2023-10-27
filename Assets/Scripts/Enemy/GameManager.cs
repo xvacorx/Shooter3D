@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         Time.timeScale = 0f;
 
-
+        controlCamera.enabled = false;
         Cursor.lockState = CursorLockMode.None;
-        controlCamera.deactive();
     }
 }
