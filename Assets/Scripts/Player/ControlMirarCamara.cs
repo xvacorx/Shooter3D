@@ -10,12 +10,9 @@ public class ControlMirarCamara : MonoBehaviour
     public float sensibilidad = 3.0f; //Sensibilidad
     public float suavizado = 2.0f; //Coeficiente de suavizado para la interpolación lineal
 
-    bool active;
-
     GameObject jugador;
     void Start()
     {
-        active = true;
         jugador = this.transform.parent.gameObject; //Emparentar al jugador con la cámara
     }
     void Update()

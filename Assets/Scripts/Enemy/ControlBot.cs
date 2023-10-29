@@ -7,13 +7,12 @@ public class ControlBot : MonoBehaviour
 {
     private int hp;
     private GameObject jugador;
-    public float rapidez = 2.5f;
+    public float rapidez = 3f;
     [SerializeField] private Rigidbody rb;
 
     public GameObject particle;
 
     public GameObject Enemy;
-
 
     void Start()
     {
@@ -32,6 +31,11 @@ public class ControlBot : MonoBehaviour
                 rb.AddForce(Vector3.up * 1f, ForceMode.Impulse);
             }
         } //Seguimiento de jugador y salto
+
+        if (transform.position.y <= -5)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

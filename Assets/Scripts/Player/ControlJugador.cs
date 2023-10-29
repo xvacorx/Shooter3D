@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlJugador : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ControlJugador : MonoBehaviour
     public Camera camaraPrimeraPersona;
 
     public GameObject proyectil;
+
+    public Slider slider;
 
     public float rapidezDesplazamiento = 10.0f;
     public float fuerzaSalto = 5f;
@@ -55,7 +58,7 @@ public class ControlJugador : MonoBehaviour
                 Rigidbody rb = pro.GetComponent<Rigidbody>();
                 rb.AddForce(camaraPrimeraPersona.transform.forward * 50, ForceMode.Impulse);
 
-                Destroy(pro, 10);
+                Destroy(pro, 5);
             }
             if (Input.GetKeyDown("escape"))
             {
@@ -72,6 +75,9 @@ public class ControlJugador : MonoBehaviour
         {
             gameManager.gameOver();
         } //Si la vida baja a 0, activa la pantalla de derrota
+
+        slider.value = hp;
+
     }
     private void OnCollisionEnter(Collision collision)
     {

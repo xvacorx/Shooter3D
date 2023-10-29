@@ -116,6 +116,7 @@ MonoBehaviour:
   rb: {fileID: -6393898348612976103}
   particle: {fileID: 2942578019131032774, guid: e2e8481ffaaa75048a1ebe53490fcea5, type: 3}
   Enemy: {fileID: 4655076214908982717}
+  timeAndScore: {fileID: 1706645861247419920, guid: 758aba40a90b591488836f8768b5bbf7, type: 3}
 --- !u!54 &-6393898348612976103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,4 +132,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

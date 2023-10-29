@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     bool spawnerActive = true;
 
-    float delay;
+    [SerializeField] float delay;
 
     private void Start()
     {
