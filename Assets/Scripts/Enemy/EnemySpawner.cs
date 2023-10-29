@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
             if (delay >= 3)
             {
                 yield return new WaitForSeconds(delay);
+                reduceDelay(0.5f);
             }
             else { yield return new WaitForSeconds(3f); }
         }

@@ -11,14 +11,14 @@ public class ControlJugador : MonoBehaviour
 
     public GameObject proyectil;
 
-    public Slider slider;
+    public Text life;
 
     public float rapidezDesplazamiento = 10.0f;
     public float fuerzaSalto = 5f;
     private bool isGrounded;
     [SerializeField] private Rigidbody rb;
 
-    private int hp;
+    public int hp;
 
     void Start()
     {
@@ -30,6 +30,12 @@ public class ControlJugador : MonoBehaviour
     }
     void Update()
     {
+        if (hp >= 0)
+        {
+            life.text = "Vida: " + hp + "%";
+        }
+        else { life.text = "Vida: 0%"; }
+        
         {
             isGrounded = Physics.Raycast(transform.position, Vector3.down, 1f);
 
@@ -75,8 +81,6 @@ public class ControlJugador : MonoBehaviour
         {
             gameManager.gameOver();
         } //Si la vida baja a 0, activa la pantalla de derrota
-
-        slider.value = hp;
 
     }
     private void OnCollisionEnter(Collision collision)

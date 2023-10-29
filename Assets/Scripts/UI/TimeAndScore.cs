@@ -12,6 +12,8 @@ public class TimeAndScore : MonoBehaviour
     public int contadorScore = 0;
     private int highScore = 0;
     private int time = 0;
+    private int contadorTime = 0;
+    public int coinScore;
 
     private void Start()
     {
@@ -21,8 +23,9 @@ public class TimeAndScore : MonoBehaviour
 
     private void Update()
     {
-        contadorScore = (int)(Time.time);
-        if (contadorScore > time)
+        contadorScore = (int)(Time.time) + coinScore;
+        contadorTime = (int)(Time.time);
+        if (contadorTime > time)
         {
             time = contadorScore;
             PlayerPrefs.SetInt("MaxTime", highScore);
@@ -54,5 +57,10 @@ public class TimeAndScore : MonoBehaviour
     public void DisableScreen()
     {
         gameObject.SetActive(false);
+    }
+
+    public void AddScore(int score)
+    {
+        contadorScore += score;
     }
 }
