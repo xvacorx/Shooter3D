@@ -27,7 +27,7 @@ public class TimeAndScore : MonoBehaviour
         contadorTime = (int)(Time.time);
         if (contadorTime > time)
         {
-            time = contadorScore;
+            time = contadorTime;
             PlayerPrefs.SetInt("MaxTime", highScore);
             PlayerPrefs.Save();
         }
@@ -43,10 +43,10 @@ public class TimeAndScore : MonoBehaviour
 
     private void ActualizarPuntajes()
     {
-        timeText.text = "Tiempo: " + contadorScore.ToString("D");
+        timeText.text = "Tiempo: " + contadorTime.ToString("D");
         scoreText.text = "Puntaje: " + contadorScore.ToString("D");
         highScoreText.text = "Puntaje más alto: " + highScore.ToString("D");
-        MaxTime.text = "El tiempo máximo fue de: " + time.ToString("D");
+        MaxTime.text = "Tiempo máximo fue de: " + time.ToString("D");
     }
 
     public void ActiveScreen()
