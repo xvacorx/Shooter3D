@@ -39,8 +39,8 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < randomQuantity; i++)
         {
-            int randomIndex = Random.Range(0, enemy.Length);
-            int randomPosition = Random.Range(0, spawnPosition.Length);
+            int randomIndex = Random.Range(0, enemy.Length); //Spawnea de forma aleatoria de la lista de enemigos
+            int randomPosition = Random.Range(0, spawnPosition.Length); //Spawnea en una zona aleatoria preestablecida
 
             GameObject randomEnemy = enemy[randomIndex];
 
